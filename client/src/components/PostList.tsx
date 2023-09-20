@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { CommentList } from './CommentList';
+import { CommentCreate } from './CommentCreate';
 
 type Post = {
 	[key: string]: {
@@ -31,6 +33,9 @@ export function PostList() {
 				>
 					<div className="card-body">
 						<h3>{post.title}</h3>
+
+						<CommentList postId={post.id} />
+						<CommentCreate postId={post.id} />
 					</div>
 				</div>
 			))}
