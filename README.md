@@ -11,7 +11,7 @@
 - [x] Query service;
 - [x] Sync events when query service is restarted;
 - [x] Web Client;
-- [ ] Containerize application (Docker);
+- [x] Containerize application (Docker);
 
 ### 💻 Prerequisites
 
