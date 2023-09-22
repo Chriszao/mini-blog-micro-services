@@ -15,9 +15,10 @@ async function callService(port, event) {
 app.post('/events', async (req, res) => {
 	const event = req.body;
 
-	callService(4000, event);
-	callService(4001, event);
-	callService(4002, event);
+	callService(4000, event); // posts
+	callService(4001, event); // comments
+	callService(4002, event); // query
+	callService(4003, event); // moderation
 
 	res.send({ status: 'OK' });
 });

@@ -24,13 +24,15 @@ app.post('/posts', async (req, res) => {
 		title,
 	};
 
-	await axios.post('http://localhost:4005/events', {
-		type: 'PostCreated',
-		data: {
-			id,
-			title,
-		},
-	});
+	await axios
+		.post('http://localhost:4005/events', {
+			type: 'PostCreated',
+			data: {
+				id,
+				title,
+			},
+		})
+		.catch(console.error);
 
 	res.status(201).send(posts[id]);
 });
