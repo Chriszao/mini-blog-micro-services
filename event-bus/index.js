@@ -8,8 +8,8 @@ app.use(bodyParser.json());
 
 const events = [];
 
-async function callService(port, event) {
-	const baseUrl = `http://localhost:${port}/events`; // For this purpose, we are running the apps in the same machine
+async function callService(serviceDomain, event) {
+	const baseUrl = `http://${serviceDomain}/events`;
 
 	axios.post(baseUrl, event).catch(console.error);
 }
@@ -19,10 +19,10 @@ app.post('/events', async (req, res) => {
 
 	events.push(event);
 
-	callService(4000, event); // posts
-	callService(4001, event); // comments
-	callService(4002, event); // query
-	callService(4003, event); // moderation
+	callService('posts-clusterip-srv:4000', event);
+	// callService(4001, event); // comments
+	// callService(4002, event); // query
+	// callService(4003, event); // moderation
 
 	res.send({ status: 'OK' });
 });
