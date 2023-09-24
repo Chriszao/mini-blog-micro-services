@@ -20,9 +20,9 @@ app.post('/events', async (req, res) => {
 	events.push(event);
 
 	callService('posts-clusterip-srv:4000', event);
-	// callService(4001, event); // comments
-	// callService(4002, event); // query
-	// callService(4003, event); // moderation
+	callService('comments-srv:4001', event);
+	callService('query-srv:4002', event);
+	callService('moderation-srv:4003', event);
 
 	res.send({ status: 'OK' });
 });
