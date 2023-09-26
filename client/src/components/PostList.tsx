@@ -15,7 +15,7 @@ export function PostList() {
 	const [posts, setPosts] = useState<Post>({} as Post);
 
 	async function fetchPosts() {
-		const response = await axios.get<Post>('http://localhost:4002/posts');
+		const response = await axios.get<Post>('http://mini-blog.com/posts');
 
 		setPosts(response.data);
 	}
